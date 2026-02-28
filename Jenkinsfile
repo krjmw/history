@@ -18,7 +18,7 @@ spec:
     - name: kaniko-secret
       mountPath: /kaniko/.docker
   - name: kubectl
-    image: alpine/k8s:1.27
+    image: alpine/k8s:1.29.11
     command:
     - sleep
     args:
