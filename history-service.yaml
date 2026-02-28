@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: history-service
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: history-service
+  template:
+    metadata:
+      labels:
+        name: history-service
+    spec:
+      containers:
+      - name: history-service
+        image: crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history:v1
+        ports:
+        - containerPort: 5000
+        env:
+        - name: REDIS_HOST
+          value: redis   # Sock Shop 里已经有 Redis 了
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: history-service
+  namespace: sock-shop
+spec:
+  selector:
+    name: history-service
+  ports:
+    - port: 80
+      targetPort: 5000
