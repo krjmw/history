@@ -65,7 +65,7 @@ spec:
                             kubectl set image deployment/history-service -n sock-shop \
                               history=crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history:${BUILD_NUMBER} \
                               --record
-                            kubectl rollout status deployment/history -n sock-shop
+                            kubectl rollout status deployment/history-service -n sock-shop
                         """
                     }
                 }
