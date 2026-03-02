@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# 从环境变量读取 Redis 地址，默认值为 'redis'
+# 从环境变量读取 Redis 地址，默认值为 'redis'，修改一下
 redis_host = os.getenv('REDIS_HOST', 'redis')
 r = redis.Redis(host=redis_host, port=6379, db=0, decode_responses=True)
 
@@ -32,4 +32,5 @@ def health():
 
 
 if __name__ == '__main__':
+
     app.run(host='0.0.0.0', port=5000)
