@@ -20,7 +20,7 @@ spec:
         - containerPort: 5000
         env:
         - name: REDIS_HOST
-          value: redis   # Sock Shop 里已经有 Redis 了
+          value: session-db   # Sock Shop 里已经有 Redis 了
         resources:
           requests:
             memory: "128Mi"
