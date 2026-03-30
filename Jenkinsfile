@@ -62,9 +62,8 @@ spec:
                     script {
                         // 更新 deployment 镜像版本
                         sh """
-                            kubectl set image deployment/history-service -n sock-shop \
-                              history-service=crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history:${BUILD_NUMBER} \
-                              --record
+                            sed -i "s|image: .*|image: crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history:${BUILD_NUMBER}|g" history-service.yaml
+                            kubectl apply -f history-service.yaml
                             kubectl rollout status deployment/history-service -n sock-shop
                         """
                     }
