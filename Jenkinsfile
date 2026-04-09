@@ -51,6 +51,7 @@ spec:
                               --destination=crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history:latest \
                               --cache=true
                               --verbosity=debug
+                              --cache-repo=crpi-ylw7gpcmxpqjz8c6.cn-wulanchabu.personal.cr.aliyuncs.com/myvote/history-cache
                         """
                     }
                 }
